@@ -1,4 +1,4 @@
-namespace src.Endpoints
+namespace src.Endpoints.Categories
 {
   public class CategoryRequest
   {

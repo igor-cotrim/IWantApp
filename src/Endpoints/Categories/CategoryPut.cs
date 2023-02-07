@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using src.Infra.Data;
 
-namespace src.Endpoints;
+namespace src.Endpoints.Categories;
 
 public class CategoryPut
 {
