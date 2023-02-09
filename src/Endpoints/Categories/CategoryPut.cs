@@ -5,6 +5,8 @@ public class CategoryPut
   public static string Template => "/categories/{id:guid}";
   public static string[] Methods => new string[] { HttpMethod.Put.ToString() };
   public static Delegate Handle => Action;
+
+  [Authorize(Policy = "EmployeePolicy")]
   public static IResult Action(
     [FromRoute] Guid id,
     HttpContext http,
