@@ -1,4 +1,6 @@
 global using Dapper;
+global using Serilog;
+global using Serilog.Sinks.MSSqlServer;
 global using Flunt.Notifications;
 global using Flunt.Validations;
 global using Microsoft.AspNetCore.Identity;

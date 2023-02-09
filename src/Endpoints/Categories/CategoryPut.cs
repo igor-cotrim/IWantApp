@@ -7,7 +7,7 @@ public class CategoryPut
   public static Delegate Handle => Action;
 
   [Authorize(Policy = "EmployeePolicy")]
-  public static IResult Action(
+  public static async Task<IResult> Action(
     [FromRoute] Guid id,
     HttpContext http,
     CategoryRequest categoryRequest,
@@ -24,7 +24,7 @@ public class CategoryPut
     if (!category.IsValid)
       return Results.ValidationProblem(category.Notifications.ConvertToProblemDetails());
 
-    context.SaveChanges();
+    await context.SaveChangesAsync();
 
     return Results.Ok();
   }

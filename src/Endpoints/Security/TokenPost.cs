@@ -7,20 +7,25 @@ public class TokenPost
   public static Delegate Handle => Action;
 
   [AllowAnonymous]
-  public static IResult Action(
+  public static async Task<IResult> Action(
     LoginRequest loginRequest,
     IConfiguration configuration,
-    UserManager<IdentityUser> userManager)
+    UserManager<IdentityUser> userManager,
+    ILogger<TokenPost> logger)
   {
-    var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
+    logger.LogInformation("Getting token");
+    logger.LogWarning("Warning");
+    logger.LogError("Error");
+
+    var user = await userManager.FindByEmailAsync(loginRequest.Email);
 
     if (user == null)
-      Results.BadRequest();
+      return Results.BadRequest();
 
     if (!userManager.CheckPasswordAsync(user, loginRequest.Password).Result)
-      Results.BadRequest();
+      return Results.BadRequest();
 
-    var claims = userManager.GetClaimsAsync(user).Result;
+    var claims = await userManager.GetClaimsAsync(user);
     var subject = new ClaimsIdentity(new Claim[]
     {
       new Claim(ClaimTypes.Email, loginRequest.Email),

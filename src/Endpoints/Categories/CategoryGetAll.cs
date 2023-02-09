@@ -7,9 +7,9 @@ public class CategoryGetAll
   public static Delegate Handle => Action;
 
   [Authorize(Policy = "EmployeePolicy")]
-  public static IResult Action(ApplicationDbContext context)
+  public static async Task<IResult> Action(ApplicationDbContext context)
   {
-    var categories = context.Categories.ToList();
+    var categories = await context.Categories.ToListAsync();
     var response = categories.Select(c => new CategoryResponse(c.Id, c.Name, c.Active));
 
     return Results.Ok(response);

@@ -47,6 +47,19 @@ builder.Services.AddScoped<QueryAllUserWithClaimName>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Host.UseSerilog((context, configuration) =>
+{
+  configuration
+      .WriteTo.Console()
+      .WriteTo.MSSqlServer(
+          context.Configuration["ConnectionString:IWantDb"],
+            sinkOptions: new MSSqlServerSinkOptions()
+            {
+              AutoCreateSqlTable = true,
+              TableName = "LogAPI"
+            });
+});
+
 var app = builder.Build();
 
 app.UseAuthentication();
