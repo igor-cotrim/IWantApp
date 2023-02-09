@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
-using src.Infra.Data;
-
 namespace src.Endpoints.Employees;
 
 public class EmployeeGetAll

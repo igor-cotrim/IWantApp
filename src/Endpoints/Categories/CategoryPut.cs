@@ -1,7 +1,3 @@
-using System.Security.Claims;
-using Microsoft.AspNetCore.Mvc;
-using src.Infra.Data;
-
 namespace src.Endpoints.Categories;
 
 public class CategoryPut

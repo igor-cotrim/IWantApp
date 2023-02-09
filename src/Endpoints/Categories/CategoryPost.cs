@@ -1,8 +1,3 @@
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-using src.Domain.Products;
-using src.Infra.Data;
-
 namespace src.Endpoints.Categories;
 
 public class CategoryPost

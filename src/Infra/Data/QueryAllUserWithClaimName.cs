@@ -1,7 +1,3 @@
-using Dapper;
-using Microsoft.Data.SqlClient;
-using src.Endpoints.Employees;
-
 namespace src.Infra.Data;
 
 public class QueryAllUserWithClaimName
