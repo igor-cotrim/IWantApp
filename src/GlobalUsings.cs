@@ -18,6 +18,7 @@ global using System.IdentityModel.Tokens.Jwt;
 
 global using src.Domain.Products;
 global using src.Domain.Users;
+global using src.Domain.Orders;
 global using src.Infra.Data;
 global using src.Endpoints.Categories;
 global using src.Endpoints.Employees;
