@@ -43,6 +43,7 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddScoped<QueryAllUserWithClaimName>();
+builder.Services.AddScoped<UserCreator>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -81,6 +82,7 @@ app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.H
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
+app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 
 app.UseExceptionHandler("/error");

@@ -17,8 +17,10 @@ global using System.Text;
 global using System.IdentityModel.Tokens.Jwt;
 
 global using src.Domain.Products;
+global using src.Domain.Users;
 global using src.Infra.Data;
 global using src.Endpoints.Categories;
 global using src.Endpoints.Employees;
 global using src.Endpoints.Security;
 global using src.Endpoints.Products;
+global using src.Endpoints.Clients;
