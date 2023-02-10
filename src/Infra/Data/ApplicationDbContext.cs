@@ -9,16 +9,25 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
   {
     base.OnModelCreating(modelBuilder);
 
-    modelBuilder.Ignore<Notification>();
+    modelBuilder
+      .Ignore<Notification>();
     modelBuilder
       .Entity<Product>()
-      .Property(p => p.Name).IsRequired();
+      .Property(p => p.Name)
+      .IsRequired();
     modelBuilder
       .Entity<Product>()
-      .Property(p => p.Description).HasMaxLength(255);
+      .Property(p => p.Description)
+      .HasMaxLength(255);
+    modelBuilder
+      .Entity<Product>()
+      .Property(p => p.Price)
+      .HasColumnType("decimal(10,2)")
+      .IsRequired();
     modelBuilder
       .Entity<Category>()
-      .Property(p => p.Name).IsRequired();
+      .Property(p => p.Name)
+      .IsRequired();
   }
   protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
   {

@@ -21,3 +21,4 @@ global using src.Infra.Data;
 global using src.Endpoints.Categories;
 global using src.Endpoints.Employees;
 global using src.Endpoints.Security;
+global using src.Endpoints.Products;

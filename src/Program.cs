@@ -50,14 +50,14 @@ builder.Services.AddSwaggerGen();
 builder.Host.UseSerilog((context, configuration) =>
 {
   configuration
-      .WriteTo.Console()
-      .WriteTo.MSSqlServer(
-          context.Configuration["ConnectionString:IWantDb"],
-            sinkOptions: new MSSqlServerSinkOptions()
-            {
-              AutoCreateSqlTable = true,
-              TableName = "LogAPI"
-            });
+    .WriteTo.Console()
+    .WriteTo.MSSqlServer(
+      context.Configuration["ConnectionString:IWantDb"],
+        sinkOptions: new MSSqlServerSinkOptions()
+        {
+          AutoCreateSqlTable = true,
+          TableName = "LogAPI"
+        });
 });
 
 var app = builder.Build();
@@ -78,6 +78,8 @@ app.MapMethods(CategoryGetAll.Template, CategoryGetAll.Methods, CategoryGetAll.H
 app.MapMethods(CategoryPut.Template, CategoryPut.Methods, CategoryPut.Handle);
 app.MapMethods(EmployeePost.Template, EmployeePost.Methods, EmployeePost.Handle);
 app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.Handle);
+app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
+app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 
 app.UseExceptionHandler("/error");
