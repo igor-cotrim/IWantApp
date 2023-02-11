@@ -43,6 +43,7 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddScoped<QueryAllUserWithClaimName>();
+builder.Services.AddScoped<QueryAllProductsSold>();
 builder.Services.AddScoped<UserCreator>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -83,6 +84,7 @@ app.MapMethods(EmployeePost.Template, EmployeePost.Methods, EmployeePost.Handle)
 
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
+app.MapMethods(ProductReportSold.Template, ProductReportSold.Methods, ProductReportSold.Handle);
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
