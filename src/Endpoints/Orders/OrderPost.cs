@@ -14,7 +14,6 @@ public class OrderPost
   {
     var clientId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
     var clientName = http.User.Claims.First(c => c.Type == "Name").Value;
-    var products = new List<Product>();
     List<Product> productsFound = null;
 
     if (orderRequest.ProductIds != null && orderRequest.ProductIds.Any())
