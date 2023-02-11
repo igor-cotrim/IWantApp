@@ -25,3 +25,4 @@ global using src.Endpoints.Employees;
 global using src.Endpoints.Security;
 global using src.Endpoints.Products;
 global using src.Endpoints.Clients;
+global using src.Endpoints.Orders;
